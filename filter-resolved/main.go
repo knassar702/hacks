@@ -37,11 +37,11 @@ func main() {
 		// them only if there was no error
 		go func() {
 			for domain := range jobs {
-				_, err := net.ResolveIPAddr("ip4", domain)
+				addr, err := net.ResolveIPAddr("ip4", domain)
 				if err != nil {
 					continue
 				}
-				fmt.Println(domain)
+				fmt.Println(domain,addr)
 			}
 
 			// when the jobs channel is closed the loop
