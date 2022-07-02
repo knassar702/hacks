@@ -1,0 +1,24 @@
+[profile.release]
+opt-level = "z"  # Optimize for size.
+lto = true
+codegen-units = 1
+panic = "abort"
+strip = true
+
+
+[package]
+name = "check-cnames"
+version = "0.1.0"
+edition = "2021"
+authors = ["Khaled Nassar <knassar702@gmail.com>"]
+description = "Resolves CNAMEs and checks if they are valid"
+repository = "https://github.com/knassar702/hacks"
+license = "GPL2"
+keywords = ["bugbounty","dns","cname"]
+categories = ["command-line-utilities"]
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+rayon = "1.5.3"
+trust-dns-resolver = "0.21.2"
