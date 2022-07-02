@@ -1,5 +1,5 @@
 # hacks
-re-write tomnomnom hacks in Rust :crab:
+re-write [tomnomnom hacks](https://github.com/tomnomnom/hacks) in Rust :crab:
 
 
 ## INSTALL
