@@ -1,0 +1,24 @@
+
+[profile.release]
+opt-level = "z"  # Optimize for size.
+lto = true
+codegen-units = 1
+panic = "abort"
+strip = true
+
+[package]
+name = "anti-burl"
+version = "0.1.0"
+edition = "2021"
+authors = ["Khaled Nassar <knassar702@gmail.com>"]
+description = "Takes URLs on stdin, prints them to stdout if they return a 200 OK. That's literally it"
+repository = "https://github.com/knassar702/hacks"
+license = "GPL2"
+keywords = ["bugbounty"]
+categories = ["command-line-utilities"]
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+ureq = "2.4.0"
+rayon = "1.5.2"
