@@ -1,3 +1,5 @@
+use rayon::prelude::*;
+
 mod req;
 
 pub struct App {
@@ -6,12 +8,7 @@ pub struct App {
 
 impl App {
     pub fn start(self) {
-        let threader = rayon::ThreadPoolBuilder::new()
-            .num_threads(50)
-            .build()
-            .unwrap();
-        threader.install(|| {
-            for line in self.input {
+        self.input.par_iter().for_each(|line| {
                 let url = line.trim();
                 match req::send_request(url) {
                     Ok(res) => {
@@ -25,10 +22,9 @@ impl App {
                         }
                     }
                     Err(_err) => {
-                        todo!();
+                        //  IGNORE 
                     }
-                }
             }
-        });
+    });
     }
 }
