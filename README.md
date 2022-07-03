@@ -17,7 +17,7 @@ $ cargo install --git="https://github.com/knassar702/hacks" TOOL_NAME
 
 ## Contribution
 
-wanna help ?
+want to help
 thats good you can follow theses steps
 
 1. fork the repo
