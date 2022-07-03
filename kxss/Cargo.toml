@@ -23,6 +23,5 @@ categories = ["command-line-utilities"]
 [dependencies]
 rayon = "1.5.3"
 structopt = "0.3.26"
-scraper = "0.13.0"
 url = "2.2.2"
 ureq = "2.4.0"
