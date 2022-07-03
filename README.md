@@ -26,3 +26,7 @@ thats good you can follow theses steps
 4. send a pull request
 
 if you have any problem with your code you can open an issue if you need any kind of help
+
+
+## Acknowledgments
+![cont](CONTRIBUTORS.svg)
