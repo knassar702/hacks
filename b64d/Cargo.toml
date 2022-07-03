@@ -1,12 +1,12 @@
 [package]
-name = "check-cnames"
+name = "b64d"
 version = "0.1.0"
 edition = "2021"
-authors = ["Khaled Nassar <knassar702@gmail.com>"]
-description = "Resolves CNAMEs and checks if they are valid"
+authors = ["Logan Wemyss"]
+description = "Decode a base64 encoded file"
 repository = "https://github.com/knassar702/hacks"
-license = "GPL2"
-keywords = ["bugbounty","dns","cname"]
+license = "GPL-3.0-or-later"
+keywords = ["base64"]
 categories = ["command-line-utilities"]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
@@ -19,6 +19,5 @@ panic = "abort"
 strip = true
 
 [dependencies]
-rayon = "1.5.3"
-structopt = "0.3.26"
-trust-dns-resolver = "0.21.2"
+base64 = "0.13"
+structopt = "0.3"
