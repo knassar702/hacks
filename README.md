@@ -15,7 +15,7 @@ $ cargo install --git="https://github.com/knassar702/hacks" TOOL_NAME
 
 
 
-## Contrubtion
+## Contribution
 
 wanna help ?
 thats good you can follow theses steps
