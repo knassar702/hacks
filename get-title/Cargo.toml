@@ -1,0 +1,24 @@
+[package]
+name = "get-title"
+version = "0.1.0"
+edition = "2021"
+authors = ["Mohamed Tarek @0xr00t3d"]
+description = "Takes a list of URLs and prints their title"
+repository = "https://github.com/knassar702/hacks"
+keywords = ["get-title","title","bugbounty"]
+license = "GPL-3.0-or-later"
+categories = ["command-line-utilites"]
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[profile.release]
+opt-level = "z"  # Optimize for size.
+lto = true
+codegen-units = 1
+panic = "abort"
+strip = true
+
+[dependencies]
+ureq = "2.4.0"
+scraper = "0.13.0"
+rayon = "1.5.3"
