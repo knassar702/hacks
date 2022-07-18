@@ -1,0 +1,23 @@
+[package]
+name = "waybackurls"
+version = "0.1.0"
+edition = "2021"
+authors = ["Khaled Nassar <knassar702@gmail.com>"]
+description = "get urls from the wayback machine"
+repository = "https://github.com/knassar702/hacks"
+license = "GPL-3.0-or-later"
+keywords = ["bugbounty"]
+categories = ["command-line-utilities"]
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[profile.release]
+opt-level = "z"  # Optimize for size.
+lto = true
+codegen-units = 1
+panic = "abort"
+strip = true
+
+[dependencies]
+ureq = { version ="2.4", features = ["json", "charset"] }
+serde = { version = "1.0.130", features = ["derive"] }
