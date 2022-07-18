@@ -22,7 +22,7 @@ jobs:
             n=$(dirname $i)
             cd $n
             echo "cd $n && cargo build"
-            cargo build --verbose
+            cargo build
             cd ../
         done
     - name: Run tests
@@ -32,7 +32,7 @@ jobs:
             n=$(dirname $i)
             cd $n
             echo "cd $n && cargo test"
-            cargo test --verbose
+            cargo test
             cd ../
         done
 
