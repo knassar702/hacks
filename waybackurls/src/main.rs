@@ -1,7 +1,12 @@
 use serde::{Deserialize, Serialize};
+use std::io::{self, BufRead};
 
 fn main() {
-    get_webarchive("knas.me");
+    let stdin = io::stdin();
+    let lines = stdin.lock().lines();
+    lines.for_each(|domain| {
+        get_webarchive(str::trim(&domain.unwrap()));
+    });
 }
 
 #[derive(Serialize, Deserialize, Debug)]
