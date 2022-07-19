@@ -6,7 +6,7 @@ RUN for i in $(find */Cargo.toml )
             n=$(dirname $i)
             cd $n
             echo "cd $n && cargo build"
-            cargo build --verbose
+            cargo install --verbose
             cd ../
         done
 ENTRYPOINT ["sh"]
