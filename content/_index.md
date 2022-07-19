@@ -1,7 +1,5 @@
-
-here we're trying to write some tools for cyber security in Rust
-because we don't have **enough** community for Rust in the cyber security field soo this project can be use as an example for new coders, or as a small community so feel free to ask anything about Rust here
-Also, we will re-write small tools like tomnomnom hacks and after finishing it you will find a simple blog post about **How we write it**
+here we're trying to write some tools for cyber security in Rust because we don't have enough community for Rust in the cyber security field\
+soo this project can be used as an example for new coders, or as a small community so feel free to ask anything about Rust here Also, we will re-write small tools like tomnomnom hacks and after finishing it you will find a simple blog post about How to write it
 
 
 
