@@ -1,9 +1,6 @@
-# hacks
-here we're trying to re-write [tomnomnom hacks](https://github.com/tomnomnom/hacks) in Rust :crab:
-because of two reasons
+here we're trying to write some tools for cyber security in Rust because we don't have enough community for Rust in the cyber security field\
+soo this project can be used as an example for new coders, or as a small community so feel free to ask anything about Rust here Also, we will re-write small tools like tomnomnom hacks and after finishing it you will find a simple blog post about How to write it
 
-1. to fix/improve some of tomnomnom tools
-2. take it as an example for cybersecurity community who's trying to learn How to create tools in Rust
 
 
 ## installation
@@ -29,4 +26,4 @@ if you have any problem with your code you can open an issue if you need any kin
 
 
 ## Acknowledgments
-![cont](CONTRIBUTORS.svg)
+![cont](https://raw.githubusercontent.com/knassar702/hacks/master/CONTRIBUTORS.svg)
