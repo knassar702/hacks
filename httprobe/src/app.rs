@@ -4,26 +4,43 @@ const XLARGE: &str = include_str!("txt/xlarge.txt");
 const LARGE: &str = include_str!("txt/large.txt");
 
 pub enum Mode {
-    Normal,
     Large,
     XLarge,
+    Normal,
 }
+
+
 
 pub struct Httprobe {
     pub urls: Vec<String>,
     pub threads: usize,
     pub timeout: usize,
+    pub https_ports: Vec<String>,
+    pub http_ports: Vec<String>,
+    pub mode: Mode,
 }
 
 impl Httprobe {
-    pub fn start(&self, mode: Mode) {
+    pub fn start(&self) {
         let pool = rayon::ThreadPoolBuilder::new()
             .num_threads(self.threads.try_into().unwrap())
             .build()
             .unwrap();
+
+        let urls = self.get_urls();
+        pool.install(|| {
+            urls.par_iter().for_each(|url| match self.send_req(url) {
+                Ok(resp_url) => println!("{}", resp_url),
+                Err(_) => {}
+            });
+
+        })
+    }
+
+    fn get_urls(&self) -> Vec<String> {
         let mut urls: Vec<String> = Vec::new();
         self.urls.iter().for_each(|url| {
-            match mode {
+            match self.mode {
                 Mode::XLarge => {
                     let mut lines = XLARGE.lines();
                     while let Some(port) = lines.next() {
@@ -38,26 +55,17 @@ impl Httprobe {
                         urls.push(format!("http://{}:{}", url, port));
                     }
                 }
-                Mode::Normal => {
-                    // split the url into host and ports
-                    let mut lines = self.urls.iter();
-                    while let Some(line) = lines.next() {
-                        let mut url = line.split(":");
-                        let host = url.next().unwrap();
-                        let port = url.next().unwrap();
-                        urls.push(format!("https://{}:{}", host, port));
-                        urls.push(format!("http://{}:{}", host, port));
-                    }
-                }
+                _ => {}
             }
-        });
-
-        pool.install(|| {
-            urls.par_iter().for_each(|url| match self.send_req(url) {
-                Ok(resp_url) => println!("{}", resp_url),
-                Err(_) => {}
+            self.https_ports.iter().for_each(|port| {
+                urls.push(format!("https://{}:{}", url, port));
             });
-        })
+            self.http_ports.iter().for_each(|port| {
+                urls.push(format!("http://{}:{}", url, port));
+            });
+
+        });
+        urls
     }
 
     fn send_req(&self, url: &str) -> Result<String, ureq::Error> {
