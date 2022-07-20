@@ -58,10 +58,16 @@ impl Httprobe {
                 _ => {}
             }
             self.https_ports.iter().for_each(|port| {
-                urls.push(format!("https://{}:{}", url, port));
+                let current_url = format!("https://{}:{}", url, port);
+                if !urls.contains(&current_url) {
+                    urls.push(current_url);
+                }
             });
             self.http_ports.iter().for_each(|port| {
-                urls.push(format!("http://{}:{}", url, port));
+                let current_url = format!("http://{}:{}", url, port);
+                if !urls.contains(&current_url) {
+                    urls.push(current_url);
+                }
             });
 
         });
