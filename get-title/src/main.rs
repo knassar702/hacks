@@ -50,7 +50,7 @@ fn main() {
     pool.install(|| {
         urls.par_iter().for_each(|url| {
             match requester(url.as_str()){
-                Ok(resp) => extract_title(resp, url.as_str().trim_whitespace(), &selector),
+                Ok(resp) => extract_title(resp, url.as_str().trim(), &selector),
                 Err(e) => eprintln!("{}",e)}
             }
         )}
