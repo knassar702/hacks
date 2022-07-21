@@ -22,3 +22,4 @@ strip = true
 ureq = "2.4.0"
 scraper = "0.13.0"
 rayon = "1.5.3"
+structopt = "0.3.26"
