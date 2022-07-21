@@ -36,10 +36,12 @@ fn main() {
     loop{
         let mut input = String::from("");
         io::stdin().read_line(&mut input).expect("failed to read from pipe");
-        if input != "" {
-            urls.push(input);
-        }else{
-            break
+        match input.as_str(){
+            "" => break,
+            "\n" => {
+                //IGNORE
+            },
+            _ => urls.push(input),
         }
     }
 
