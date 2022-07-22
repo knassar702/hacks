@@ -3,7 +3,7 @@ use rayon::prelude::*;
 use url::Url;
 mod injector;
 
-const REFLECTED_TEXT: &str = "iy3j4h234hjb23234";
+const REFLECTED_TEXT: &str = "kxrs";
 
 pub struct App {
     pub input: Vec<String>,
