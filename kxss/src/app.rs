@@ -3,7 +3,7 @@ use rayon::prelude::*;
 use url::Url;
 mod injector;
 
-const REFLECTED_TEXT: &str = "iy3j4h234hjb23234";
+const REFLECTED_TEXT: &str = "kxrs";
 
 pub struct App {
     pub input: Vec<String>,
@@ -23,7 +23,7 @@ impl App {
                 };
                 current_injector.url_value(REFLECTED_TEXT).iter().for_each(|url_param|{
                     url_param.1.iter().for_each(|new_url|{
-                        match ureq::get(new_url.as_str()).set("User-agent","User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.100 Safari/537.36").call() {
+                        match ureq::get(new_url.as_str()).set("User-agent","Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.100 Safari/537.36").call() {
                             Ok(res) => {
                                 if res.content_type().contains("html") {
                                     res.into_string().unwrap().lines().for_each(|line|{
@@ -53,7 +53,7 @@ impl App {
             };
             let payload = format!("kexs{}",current_check);
             let new_url = current_injector.set_urlvalue(parameter,payload.as_str());
-            match ureq::get(new_url.as_str()).set("User-agent","User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.100 Safari/537.36").call() {
+            match ureq::get(new_url.as_str()).set("User-agent","Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.100 Safari/537.36").call() {
                 Ok(res) => {
                     if res.content_type().contains("html") {
                         res.into_string().unwrap().lines().for_each(|line|{
