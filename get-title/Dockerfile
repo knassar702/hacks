@@ -1,5 +1,5 @@
 # Build
-FROM rust:1.31-slim AS build-env
+FROM rust:1.62.0-slim AS build-env
 WORKDIR /get-title
 COPY . .
 RUN cargo build --release
