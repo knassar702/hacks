@@ -1,0 +1,7 @@
+[package]
+name = "htmlattribs"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+html5tokenizer = "0.4.0"
