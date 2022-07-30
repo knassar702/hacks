@@ -20,7 +20,9 @@ thats good you can follow theses steps
 1. fork the repo
 2. create a new branch
 3. code your tool (make sure to keep it minimal)
-4. send a pull request
+4. create README.md
+5. run `cargo fmt`
+6. send a pull request
 
 if you have any problem with your code you can open an issue if you need any kind of help
 
