@@ -6,5 +6,6 @@ RUN cargo build --release
 
 # Release
 FROM debian:stable-slim
+RUN apt install libssl-dev -y
 COPY --from=build-env /anti-burl/target/release/anti-burl /usr/bin/anti-burl
 ENTRYPOINT ["anti-burl"]
