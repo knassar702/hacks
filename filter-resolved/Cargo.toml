@@ -1,0 +1,23 @@
+[package]
+name = "filter-resolved"
+version = "0.1.0"
+edition = "2021"
+authors = ["Mohamed Tarek @0xr00t3d"]
+description = "Takes domains on stdin and output them on stdout if they resolve"
+repository = "https://github.com/knassar702/hacks"
+keywords = ["filter-resolved","resolver","bugbounty"]
+license = "GPL-3.0-or-later"
+categories = ["command-line-utilites"]
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[profile.release]
+opt-level = "z"  # Optimize for size.
+lto = true
+codegen-units = 1
+panic = "abort"
+strip = true
+
+[dependencies]
+dns-lookup = "1.0.8"
+rayon = "1.5.3"
+structopt = "0.3.26"
