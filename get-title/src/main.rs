@@ -9,14 +9,23 @@ fn requester(url: &str) -> Result<ureq:: Response, ureq::Error> {
 }
 
 fn extract_title(res: Response,url: &str,selector: &Selector){
-    let body = Html::parse_document(res.into_string().expect("failed to parse document").as_str());
+    let mut resp = String::from("");
+    match res.into_string(){
+        Ok(_resp) => {resp = _resp},
+        Err(..) => {},
+    }
+    let body = Html::parse_document(&resp);
 
-    let title = body.select(selector).next()
-        .unwrap()
-        .text()
-        .collect::<Vec<_>>();
-
-    println!("{} ({})",&title[0],url.replace("\n",""));
+    let title = body.select(selector).next();
+    match title{
+        Some(t) => {
+            let tt =t.text().collect::<Vec<_>>();
+            if tt.len() > 0{
+                println!("{} ({})",tt[0],url.replace("\n",""));
+            }
+        },
+        None => {},
+    }
 }
 
 /// Takes a list of urls and prints their titles
