@@ -1,0 +1,21 @@
+[package]
+name = "html-comments"
+version = "0.1.0"
+edition = "2021"
+authors = ["Mohamed Tarek @0xr00t3d"]
+description = "Pulls out comments from html"
+repository = "https://github.com/knassar702/hacks"
+keywords = ["html-comments","htmlcomments","bugbounty"]
+license = "GPL-3.0-or-later"
+categories = ["command-line-utilites"]
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[profile.release]
+opt-level = "z"  # Optimize for size.
+lto = true
+codegen-units = 1
+panic = "abort"
+strip = true
+
+[dependencies]
+html5tokenizer = "0.4.0"
